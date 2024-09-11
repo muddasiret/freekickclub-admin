@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_type_types",
+  "info": {
+    "displayName": "type"
+  },
+  "options": {},
+  "attributes": {
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "test 1",
+        "test 2"
+      ]
+    }
+  }
+}

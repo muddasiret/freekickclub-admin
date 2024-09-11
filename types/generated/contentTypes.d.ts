@@ -374,8 +374,9 @@ export interface ApiNewsNews extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
+    title: Attribute.String & Attribute.Required;
     description: Attribute.RichText &
+      Attribute.Required &
       Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
@@ -384,17 +385,22 @@ export interface ApiNewsNews extends Schema.CollectionType {
       >;
     subtitle: Attribute.String;
     main_image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    slug: Attribute.UID<'api::news.news', 'title'>;
-    type: Attribute.Enumeration<
-      [
-        'isl',
-        'premierleague',
-        'world',
-        'laliga',
-        'ileague',
-        'keralasuperleague'
-      ]
-    >;
+    slug: Attribute.UID<'api::news.news', 'title'> & Attribute.Required;
+    type: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'isl',
+          'premierleague',
+          'world',
+          'laliga',
+          'ileague',
+          'keralasuperleague',
+          'championsleague',
+          'international',
+          'other'
+        ]
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

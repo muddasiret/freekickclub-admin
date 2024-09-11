@@ -13,14 +13,16 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "description": {
       "type": "customField",
       "options": {
         "preset": "toolbar"
       },
-      "customField": "plugin::ckeditor5.CKEditor"
+      "customField": "plugin::ckeditor5.CKEditor",
+      "required": true
     },
     "subtitle": {
       "type": "string"
@@ -38,18 +40,23 @@
     },
     "slug": {
       "type": "uid",
-      "targetField": "title"
+      "targetField": "title",
+      "required": true
     },
     "type": {
-      "type": "enumeration",
-      "enum": [
+      "type": "customField",
+      "options": [
         "isl",
         "premierleague",
         "world",
         "laliga",
         "ileague",
-        "keralasuperleague"
-      ]
+        "keralasuperleague",
+        "championsleague",
+        "international",
+        "other"
+      ],
+      "customField": "plugin::multi-select.multi-select"
     }
   }
 }
